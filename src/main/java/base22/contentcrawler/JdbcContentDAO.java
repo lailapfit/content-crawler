@@ -1,8 +1,12 @@
 package base22.contentcrawler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 public class JdbcContentDAO implements ContentDAO {
 	
@@ -14,7 +18,31 @@ public class JdbcContentDAO implements ContentDAO {
 
 	@Override
 	public void save(Content content) {
-		
+		String sqlAddContent = "INSERT INTO content (url, title, body, links) VALUES (?, ?, ?, ?)";
+		jdbcTemplate.update(sqlAddContent, content.getLinkHref(), content.getTitle(), content.getBody(), content.getLinkText());
 	}
 
+	@Override
+	public List<Content> getAllContents(Integer listSize) {
+		List<Content> contentList = new ArrayList<Content>();
+		String sqlSearchAllContents = "SELECT * FROM content ORDER BY id DESC LIMIT ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchAllContents, listSize);
+		while(results.next()) {
+			contentList.add(mapToRowContent(results));
+		}
+		return contentList;
+	}
+	
+	private Content mapToRowContent(SqlRowSet row) {
+		Content content = new Content();
+		
+		content.setLinkHref(row.getString("url"));
+		content.setTitle(row.getString("title"));
+		content.setBody(row.getString("body"));
+		content.setLinkText(row.getString("links"));
+		return content;	
+	}
+
+
+	
 }

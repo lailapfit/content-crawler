@@ -11,12 +11,12 @@ public class Content {
 	private List<String> linkTextList;
 	private List<String> linkHrefList;
 	
-	public Content(List<String> linkTextList, List<String> linkHrefList, String title, String body) {
-		this.linkTextList = linkTextList;
-		this.linkHrefList = linkHrefList;
-		this.title = title;
-		this.body = body;
-	}
+//	public Content(List<String> linkTextList, List<String> linkHrefList, String title, String body) {
+//		this.linkTextList = linkTextList;
+//		this.linkHrefList = linkHrefList;
+//		this.title = title;
+//		this.body = body;
+//	}
 
 	public String getTitle() {
 		return title;

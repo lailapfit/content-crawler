@@ -29,5 +29,9 @@ public class FileInputOutput {
 		
 	}
 	
+	public void output() {
+		
+	}
+	
 	
 }
