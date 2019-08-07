@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class FileInputOutput {
 	
-	public List<String> input(String fileName) throws FileNotFoundException {
+	public List<String> input() throws FileNotFoundException {
 		List<String> urlList = new ArrayList<String>();
 		
 		@SuppressWarnings("resource")
@@ -28,4 +28,6 @@ public class FileInputOutput {
 		return urlList;
 		
 	}
+	
+	
 }
