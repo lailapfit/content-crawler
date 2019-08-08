@@ -1,6 +1,7 @@
 package base22.contentcrawler;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,39 +12,32 @@ import org.jsoup.select.Elements;
 
 public class Extraction {
 
-	public Content getPageContent(List<String> urls) throws IOException {
-		List<String> urlLists = new ArrayList<String>();
+	public Content getPageContent(URL hrf) throws IOException {
+		String url = hrf.toString();
+		
+		List<String> urlTextLists = new ArrayList<String>();
 		List<String> urlHrefLists = new ArrayList<String>();
-		String title = "";
-		String body = "";
-		String urlText = "";
-		String href = "";
-		String eachLink = "";
 
-		for (String url : urls) {
-			Document document = Jsoup.connect(url).get();
-			title = document.select("title").text();
-			body = document.select("body").text();
-			Elements links = document.select("a[href]");
-			eachLink = url;
+		Document document = Jsoup.connect(url).get();
+		String title = document.select("title").text();
+		String body = document.select("body").text();
+		Elements links = document.select("a[href]");
+		String eachLink = url;
 
-			for (Element link : links) {
-				urlText = link.text();
-				urlLists.add(urlText);
-				href = link.attr("abs:href");
-				urlHrefLists.add(href);
-			}
+		for (Element link : links) {
+			String urlText = link.text();
+			urlTextLists.add(urlText);
+			String href = link.attr("abs:href");
+			urlHrefLists.add(href);
 		}
 
-		String linksFormatted = formatLinks(urlLists, urlHrefLists);
+		String linksFormatted = formatLinks(urlTextLists, urlHrefLists);
 
 		Content content = new Content();
 		content.setTitle(title);
 		content.setBody(body);
-		content.setLinkHref(eachLink);
-		content.setLinkTextList(urlLists);
-		content.setLinkHrefList(urlHrefLists);
-		content.setLinkText(linksFormatted);
+		content.setInputUrl(eachLink);
+		content.setFormatedLinks(linksFormatted);
 
 		return content;
 	}

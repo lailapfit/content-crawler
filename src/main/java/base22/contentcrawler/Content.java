@@ -4,12 +4,14 @@ import java.util.List;
 
 public class Content {
 	
-	private String linkText;
-	private String linkHref;
+	private String hrefText;
+	private String href;
 	private String title;
 	private String body;
-	private List<String> linkTextList;
-	private List<String> linkHrefList;
+	private String inputUrl;
+	private String formatedLinks;
+	private List<String> hrefTextList;
+	private List<String> hrefList;
 	
 //	public Content(List<String> linkTextList, List<String> linkHrefList, String title, String body) {
 //		this.linkTextList = linkTextList;
@@ -30,38 +32,43 @@ public class Content {
 	public void setBody(String body) {
 		this.body = body;
 	}
-
-	public String getLinkText() {
-		return linkText;
+	public String getHrefText() {
+		return hrefText;
+	}
+	public void setHrefText(String hrefText) {
+		this.hrefText = hrefText;
+	}
+	public String getHref() {
+		return href;
+	}
+	public void setHref(String href) {
+		this.href = href;
+	}
+	public List<String> getHrefTextList() {
+		return hrefTextList;
+	}
+	public void setHrefTextList(List<String> hrefTextList) {
+		this.hrefTextList = hrefTextList;
+	}
+	public List<String> getHrefList() {
+		return hrefList;
+	}
+	public void setHrefList(List<String> hrefList) {
+		this.hrefList = hrefList;
+	}
+	public String getInputUrl() {
+		return inputUrl;
+	}
+	public void setInputUrl(String inputUrl) {
+		this.inputUrl = inputUrl;
+	}
+	public String getFormatedLinks() {
+		return formatedLinks;
+	}
+	public void setFormatedLinks(String formatedLinks) {
+		this.formatedLinks = formatedLinks;
 	}
 
-	public void setLinkText(String linkText) {
-		this.linkText = linkText;
-	}
-
-	public String getLinkHref() {
-		return linkHref;
-	}
-
-	public void setLinkHref(String linkHref) {
-		this.linkHref = linkHref;
-	}
-
-	public List<String> getLinkTextList() {
-		return linkTextList;
-	}
-
-	public void setLinkTextList(List<String> linkTextList) {
-		this.linkTextList = linkTextList;
-	}
-
-	public List<String> getLinkHrefList() {
-		return linkHrefList;
-	}
-
-	public void setLinkHrefList(List<String> linkHrefList) {
-		this.linkHrefList = linkHrefList;
-	}
 
 	
 	

@@ -1,6 +1,8 @@
 package base22.contentcrawler.test;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,15 +18,22 @@ public class JDBCContentDAOTest extends DAOIntegrationTest {
 
 	@Before
 	public void setUp() throws Exception {
-//		Content contentTest = new Content();
-//		
-//		dao.save(content);
+		Content contentTest = new Content();
+		contentTest.setHref("testing.gov");
+		contentTest.setTitle("Test");
+		contentTest.setBody("testing body here");
+		contentTest.setFormatedLinks("[testlink][testlinktest]");
+		dao.save(contentTest);
 		
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void getAlContentsTest() {
+		List<Content> contentListTest = dao.getAllContents(1);
+		Integer sizeResultTest = 1;
+		Integer result = contentListTest.size();		
+		
+		assertEquals(sizeResultTest, result);
 	}
 
 }

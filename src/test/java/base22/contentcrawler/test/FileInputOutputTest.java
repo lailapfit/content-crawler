@@ -8,11 +8,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import base22.contentcrawler.FileInputOutput;
+import base22.contentcrawler.FileInput;
 
 public class FileInputOutputTest {
 	
-	private FileInputOutput io = new FileInputOutput();
+	private FileInput io = new FileInput();
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,7 +21,7 @@ public class FileInputOutputTest {
 
 	@Test
 	public void inputTest() throws FileNotFoundException {
-		List<String> urlListTest = io.input();	
+		List<String> urlListTest = io.input("test.txt");	
 		Integer urlListSizeTest = urlListTest.size();		
 		Integer sizeResult = 3;
 		String firstUrlResult = "https://pinchofyum.com/";

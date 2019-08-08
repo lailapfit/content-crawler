@@ -7,5 +7,7 @@ public interface ContentDAO {
 	public void save(Content content);
 	
 	public List<Content> getAllContents(Integer listSize);
+	
+	public void output(Integer size);
 
 }

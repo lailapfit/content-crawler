@@ -19,7 +19,7 @@ public class JdbcContentDAO implements ContentDAO {
 	@Override
 	public void save(Content content) {
 		String sqlAddContent = "INSERT INTO content (url, title, body, links) VALUES (?, ?, ?, ?)";
-		jdbcTemplate.update(sqlAddContent, content.getLinkHref(), content.getTitle(), content.getBody(), content.getLinkText());
+		jdbcTemplate.update(sqlAddContent, content.getHref(), content.getTitle(), content.getBody(), content.getFormatedLinks());
 	}
 
 	@Override
@@ -36,13 +36,19 @@ public class JdbcContentDAO implements ContentDAO {
 	private Content mapToRowContent(SqlRowSet row) {
 		Content content = new Content();
 		
-		content.setLinkHref(row.getString("url"));
+		content.setHref(row.getString("url"));
 		content.setTitle(row.getString("title"));
 		content.setBody(row.getString("body"));
-		content.setLinkText(row.getString("links"));
+		content.setFormatedLinks(row.getString("links"));
 		return content;	
 	}
 
+	@Override
+	public void output(Integer size) {
+		String sqlExportToCsv = "\\copy (SELECT * FROM content ORDER BY id DESC LIMIT " + size + " ) 'output.csv' with csv";
+		jdbcTemplate.update(sqlExportToCsv, size);		
+	}
 
+	
 	
 }
