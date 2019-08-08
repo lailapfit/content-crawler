@@ -32,6 +32,7 @@ public class Main {
 //		 "http://www.tmco-usa.com/products/";
 //		 
 //		URL one = new URL(url1);
+//		System.out.println(url1.length());
 //		
 //		Extraction ex = new Extraction();
 //		
@@ -41,9 +42,10 @@ public class Main {
 //		String body = content.getBody();
 //		System.out.println(title);
 //		System.out.println(body);
+
 		
-		///test above
-		
+//		///test above
+//		
 		FileInput in = new FileInput();
 		List<String> urlList = in.input("urls.txt");
 
@@ -51,13 +53,17 @@ public class Main {
 		System.out.println(size);
 
 		Extraction ex = new Extraction();
-
-		// List<Content> contentList = new ArrayList<Content>();
 	
 		for (int i = 0; i < urlList.size(); i++) {
 			String name = urlList.get(i);
-			System.out.println(name);
-			 URL href = new URL(name);
+			
+//			for(int j = 0; j< name.length(); j++) {
+//				System.out.print(name.charAt(j));
+//				System.out.println(name.charAt(j) == url1.charAt(j));
+//			}
+//			System.out.println("\n" + name);
+//			System.out.println(name.length());
+			 URL href = new URL(name.substring(1));
 			 System.out.println(href);
 //
 //			// handle Exception
@@ -74,12 +80,14 @@ public class Main {
 //			}
 			
 			Content content = ex.getPageContent(href);
-			dao.save(content);
+			String title = content.getTitle();
+			System.out.println(title);
+		//	dao.save(content);
 			// contentList.add(content);
 		}
 
-		dao.output(size);
+	//	dao.output(size);
 	}
-
+	
 
 }
