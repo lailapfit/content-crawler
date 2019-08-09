@@ -10,18 +10,18 @@ Installation
 6. The console will print where to find the ouput file. 
 
 Data Module Detail
-id: Serial number pertaining to each record
-url: Input URL from the file
-title: Title of the web page extracted
-body: Body contents of the web page extracted
-links: Any links and its description found on the web page extracted
+1. id: Serial number pertaining to each record
+2. url: Input URL from the file
+3. title: Title of the web page extracted
+4. body: Body contents of the web page extracted
+5. links: Any links and its description found on the web page extracted
 
 Functionality
--Capability of key-in a file name on the console to run
--Reading in a .txt file of url's into the application to be extracted
--Each url running through the application will appear on the console once completed
--A message alerting the application has completed with output file name and location path
--An output .csv file containing url entered, title, body, and links of each web page.
+1. Capability of key-in a file name on the console to run
+2. Reading in a .txt file of url's into the application to be extracted
+3. Each url running through the application will appear on the console once completed
+4. A message alerting the application has completed with output file name and location path
+5. An output .csv file containing url entered, title, body, and links of each web page.
 
 Testing
 1. Validate each content extracted from the web page entered correctly in the database
