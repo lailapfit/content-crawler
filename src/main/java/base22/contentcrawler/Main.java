@@ -1,4 +1,4 @@
-package base22.contentcrawler.main;
+package base22.contentcrawler;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -7,12 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-
-import base22.contentcrawler.Content;
-import base22.contentcrawler.ContentDAO;
-import base22.contentcrawler.Extraction;
-import base22.contentcrawler.FileInput;
-import base22.contentcrawler.JdbcContentDAO;
 
 public class Main {
 

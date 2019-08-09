@@ -64,7 +64,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>base22.contentcrawler.main</mainClass>
+							<mainClass>base22.contentcrawler</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
