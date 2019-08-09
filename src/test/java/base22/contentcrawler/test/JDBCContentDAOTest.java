@@ -19,7 +19,7 @@ public class JDBCContentDAOTest extends DAOIntegrationTest {
 	@Before
 	public void setUp() throws Exception {
 		Content contentTest = new Content();
-		contentTest.setHref("testing.gov");
+		contentTest.setInputUrl("testing.gov");
 		contentTest.setTitle("Test");
 		contentTest.setBody("testing body here");
 		contentTest.setFormatedLinks("[testlink][testlinktest]");
@@ -28,7 +28,7 @@ public class JDBCContentDAOTest extends DAOIntegrationTest {
 	}
 
 	@Test
-	public void getAlContentsTest() {
+	public void getAllContentsTest() {
 		List<Content> contentListTest = dao.getAllContents(1);
 		Integer sizeResultTest = 1;
 		Integer result = contentListTest.size();		

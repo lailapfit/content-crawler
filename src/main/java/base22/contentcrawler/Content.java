@@ -4,21 +4,14 @@ import java.util.List;
 
 public class Content {
 	
-	private String hrefText;
-	private String href;
+	private String hrefText;	//url description tag
+	private String href;		//url tag
 	private String title;
 	private String body;
-	private String inputUrl;
-	private String formatedLinks;
+	private String inputUrl;	//url being scrapped for content
+	private String formatedLinks;	//formatted version of url description tag + url tag itself
 	private List<String> hrefTextList;
 	private List<String> hrefList;
-	
-//	public Content(List<String> linkTextList, List<String> linkHrefList, String title, String body) {
-//		this.linkTextList = linkTextList;
-//		this.linkHrefList = linkHrefList;
-//		this.title = title;
-//		this.body = body;
-//	}
 
 	public String getTitle() {
 		return title;

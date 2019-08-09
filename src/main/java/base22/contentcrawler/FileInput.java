@@ -8,26 +8,21 @@ import java.util.Scanner;
 
 public class FileInput {
 	
+	//gathering list of urls from the input file
 	public List<String> input(String inputFile) throws FileNotFoundException {
 		List<String> urlList = new ArrayList<String>();
-		
-	//	@SuppressWarnings("resource")
-//		Scanner in = new Scanner(System.in);
-//		System.out.println("Please enter the filename to start the Content Crawler >>> ");
-//		String user = in.nextLine();
 		File incomingFile = new File(inputFile);
-		
+
 		@SuppressWarnings("resource")
-		Scanner fileScanner =  new Scanner(incomingFile);
-		
-		while(fileScanner.hasNextLine()) {
+		Scanner fileScanner = new Scanner(incomingFile);
+
+		while (fileScanner.hasNextLine()) {
 			String url = fileScanner.nextLine();
 			urlList.add(url);
 		}
-		
+
 		return urlList;
-		
+
 	}
-	
-	
+
 }

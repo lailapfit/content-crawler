@@ -21,10 +21,10 @@ public class FileInputOutputTest {
 
 	@Test
 	public void inputTest() throws FileNotFoundException {
-		List<String> urlListTest = io.input("test.txt");	
+		List<String> urlListTest = io.input("testing.txt");	
 		Integer urlListSizeTest = urlListTest.size();		
 		Integer sizeResult = 3;
-		String firstUrlResult = "https://pinchofyum.com/";
+		String firstUrlResult = "www.pinchofyum.com";
 		String firstUrlActual = urlListTest.get(1).toString();
 		
 		assertEquals(sizeResult, urlListSizeTest);
