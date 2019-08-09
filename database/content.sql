@@ -9,5 +9,4 @@ CREATE TABLE content
    links varchar
 );
 
-rollback
 commit;
